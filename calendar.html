@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="calendar.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <p class="current-time"></p>
+            <i id="collapse" class="fa fa-angle-down" aria-hidden="true"></i>
+        </div>
+        <div class="header">
+            <div class="header-left">
+                <p class="current-date"></p>
+            </div>
+            <div class="header-right icons">
+                <span id="prev" class="fa-solid fa-sort-asc"></span>
+                <span id="next" class="fa-solid fa-sort-desc"></span>
+            </div>
+        </div>
+        <div class="calendar">
+            <ul class="weeks">
+                <li>Su</li>
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+            </ul>
+            <ul class="days"></ul>
+            <ul class="months"></ul>
+            <ul class="years"></ul>
+        </div>
+        <div class="focus">
+            <div class="left-focus">
+                <i class='fas fa-minus'></i>
+                <p class="minute"></p>
+                <i class="fa fa-plus"></i>
+            </div>
+            <div class="right-focus">
+                <button>
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    Focus
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

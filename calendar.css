@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(237, 237, 237);
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(36, 36, 36);
+    height: 55px;
+    padding: 0 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.current-time {
+    color: white;
+}
+
+#collapse {
+    color: white;
+    font-size: 16px;
+    padding: 6px;
+    border: 1px solid rgb(113, 113, 113);
+    border-radius: 4px;
+    background-color: rgb(57, 57, 57);
+    opacity: 0.8;
+}
+
+.fa-angle-down:hover {
+    background-color: rgb(36, 36, 36);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(57, 57, 57);
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.header-left {
+    width: 100%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.header-left:hover {
+    background-color: rgb(36, 36, 36);
+}
+
+.current-date {
+    color: white;
+    font-weight: 500;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-right span {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.header-right span:hover {
+    color: #ddd;
+}
+
+.header-right span#prev {
+    transform: translateY(5px);
+}
+
+.header-right span#next {
+    transform: translateY(-5px);
+}
+
+.calendar ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.calendar ul.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.calendar ul li {
+    color: white;
+}
+
+.calendar .days {
+    margin-bottom: 20px;
+}
+
+.calendar .weeks li,
+.calendar .days li {
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+}
+
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+}
+
+.days li.inactive {
+    color: #aaa;
+}
+
+.days li.active::before {
+    background: #007bff;
+}
+
+.days li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+    background: rgb(0, 166, 255);
+}
+
+.days li:not(.active):hover::before {
+    background: rgb(181, 181, 181);
+    color: black;
+}
+
+.days li:hover {
+    color: black;
+}
+
+.months {
+    display: flex;
+    row-gap: 50px;
+}
+
+.months li {
+    width: calc(100% / 4);
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.months li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 70px;
+    width: 70px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.months li.active::before {
+    background: #007bff;
+}
+
+.months li.active:hover::before {
+    background: #1d8aff;
+}
+
+.months li:not(.active):hover::before {
+    background: rgb(181, 181, 181);
+}
+
+.months li.inactive:hover {
+    color: black;
+}
+
+.months li.inactive {
+    color: #aaa;
+}
+
+.months li.next-year {
+    color: #aaa;
+    pointer-events: auto;
+}
+
+.months li.next-year:hover {
+    color: black;
+}
+
+.years {
+    display: flex;
+    row-gap: 35px;
+}
+
+.years li {
+    width: calc(100% / 4);
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 10px 0;
+}
+
+.years li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 60px;
+    width: 60px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.years li.active::before {
+    background: #007bff;
+}
+
+.years li.active:hover::before {
+    background: #1d8aff;
+}
+
+.years li:not(.active):hover::before {
+    background: rgb(181, 181, 181);
+}
+
+.years li.inactive {
+    color: #aaa;
+}
+
+.years li.inactive:hover {
+    color: black;
+}
+
+.container {
+    background-color: rgb(57, 57, 57);
+    width: 450px;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid rgb(179, 179, 179);
+    border-radius: 5px;
+}
+
+.calendar {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    height: 340px;
+    /* Đổi từ min-height thành height cố định */
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    /* Thêm này để calendar chiếm không gian còn lại */
+}
+
+.focus {
+    height: 60px;
+    background-color: rgb(45, 45, 45);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-top: 1px solid rgb(70, 70, 70);
+    margin-top: auto;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.focus .left-focus {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.focus .left-focus i {
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    background-color: rgb(57, 57, 57);
+    border: 1px solid rgb(113, 113, 113);
+}
+
+.focus .left-focus i:hover {
+    background-color: rgb(60, 60, 60);
+}
+
+.focus .minute {
+    color: white;
+    font-size: 14px;
+    min-width: 60px;
+    text-align: center;
+}
+
+.focus .right-focus button {
+    background-color: rgb(57, 57, 57);
+    border: 1px solid rgb(113, 113, 113);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.focus .right-focus button:hover {
+    background-color: rgb(0, 140, 220);
+}
+
+.focus .right-focus button:active {
+    background-color: rgb(0, 120, 200);
+}
+
+.focus .right-focus button i {
+    margin-right: 5px;
+}
+
+.header,
+.calendar {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#collapse {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#collapse:active {
+    transform: scale(0.95);
+}
+
+.container {
+    transition: height 0.3s ease, min-height 0.3s ease;
+}
+
+.focus {
+    transition: margin-top 0.3s ease;
+}
+
+#collapse:hover {
+    background-color: rgb(70, 70, 70);
+    transform: scale(1.05);
+}
